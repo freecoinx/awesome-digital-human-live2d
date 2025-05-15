@@ -2,9 +2,17 @@
 .idea
 .vscode
 
+# uv File
+.python-version
+pyproject.toml
+uv.lock
+
 # log File
 logs
 *log.txt
+
+# bak File
+*.bak
 
 # Output File
 outputs
