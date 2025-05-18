@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import { PROJ_NAME, PROJ_DESC } from "@/app/lib/constants";
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import Header from "@/app/ui/common/header/header";
 import "./globals.css";
 // const inter = Inter({ subsets: ["latin"] });
@@ -24,13 +24,13 @@ export default function RootLayout({
         <script src="/live2d/live2dcubismcore.min.js" />
       </head>
       <body>
-        <NextUIProvider>
+        <HeroUIProvider>
           {/* <div className={`${inter.className} flex flex-col h-screen`}> */}
           <div className="flex flex-col h-screen">
             <Header />
             {children}
           </div>
-        </NextUIProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );

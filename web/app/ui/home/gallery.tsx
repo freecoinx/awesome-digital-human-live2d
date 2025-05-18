@@ -1,9 +1,9 @@
 'use client'
 
-import { Image } from "@nextui-org/react";
-import { Tabs, Tab } from "@nextui-org/react";
-import { Card, CardBody, CardFooter } from "@nextui-org/react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import { Image } from "@heroui/react";
+import { Tabs, Tab } from "@heroui/react";
+import { Card, CardBody, CardFooter } from "@heroui/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@heroui/react";
 import { CharacterManager } from "@/app/lib/character"
 import { InteractionMode, useInteractionModeStore, useCharacterStore, useBackgroundStore } from "@/app/lib/store";
 import clsx from "clsx";

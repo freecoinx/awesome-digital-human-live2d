@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/react";
 import Gallery from "@/app/ui/home/gallery";
 import Settings from "@/app/ui/home/settings";
 import Github from "./github";
