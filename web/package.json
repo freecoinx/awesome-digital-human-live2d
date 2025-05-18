@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@eslint/config-array": "^0.20.0",
+    "@eslint/object-schema": "^2.1.6",
     "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.3",
     "@heroui/button": "2.2.19",
@@ -30,6 +32,7 @@
     "clsx": "^2.1.1",
     "eruda": "^3.3.0",
     "framer-motion": "^12.11.3",
+    "glob": "^11.0.2",
     "js-audio-recorder": "^1.0.7",
     "lodash": "^4.17.21",
     "next": "14.2.3",
@@ -38,8 +41,10 @@
     "react-markdown": "^9.0.1",
     "react-use": "^17.5.1",
     "react-use-websocket": "^4.8.1",
+    "rimraf": "^6.0.1",
     "websocket": "^1.0.35",
     "whatwg-fetch": "^3.6.20",
+    "yaeti": "^1.0.3",
     "zustand": "^4.5.2"
   },
   "overrides": {
