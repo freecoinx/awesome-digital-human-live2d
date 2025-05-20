@@ -80,7 +80,8 @@ class OpenaiAgent(BaseAgent):
             else:
                 response = await httpxAsyncClient.post(API_URL + CHAT_ROUTE, headers=headers, json=payload)
                 data = response.json()["choices"][0]["message"]["content"]
-                yield data
+                cleaned_data = re.sub(r"<think>.*?</think>\n?", "", data, flags=re.DOTALL)
+                yield cleaned_data
         except Exception as e:
             logger.error(f"[AGENT] Engine run failed: {e}", exc_info=True)
             yield "openai接口请求返回错误。"

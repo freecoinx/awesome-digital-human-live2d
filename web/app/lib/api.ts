@@ -36,7 +36,7 @@ export function get_heatbeat_wss() {
   const URL = getProxyURL();
 
   const wsURL = URL.replace(/^http:/, "ws:").replace(/^https:/, "wss:");
-  console.log(`${wsURL}/adh/common/${VERSION}/heartbeat`);
+  // console.log(`${wsURL}/adh/common/${VERSION}/heartbeat`);
   return `${wsURL}/adh/common/${VERSION}/heartbeat`;
 }
 
@@ -155,8 +155,9 @@ export async function agent_infer_streaming_api(
     body: JSON.stringify({
       engine: engine,
       data: data,
-      // 默认使用streaming模式
-      streaming: true,
+      // 默认不使用streaming模式
+      // streaming: true,
+      streaming: false,
       settings: settings,
     }),
     headers: {
