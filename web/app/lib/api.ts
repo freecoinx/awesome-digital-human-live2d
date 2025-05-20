@@ -17,9 +17,9 @@ function getURL(): string {
 
 function getProxyURL(): string {
   const SERVER_IP =
-    process.env.NEXT_PUBLIC_SERVER_IP;
+    process.env.NEXT_PUBLIC_SERVER_IP || process.env.NEXT_PUBLIC_ADH_SERVER_IP;
   const SERVER_PORT =
-    process.env.NEXT_PUBLIC_SERVER_PORT;
+    process.env.NEXT_PUBLIC_SERVER_PORT || process.env.NEXT_PUBLIC_ADH_SERVER_PORT;
   const URL = SERVER_PROTOCOL + "://" + SERVER_IP + ":" + SERVER_PORT;
   return URL;
 }
