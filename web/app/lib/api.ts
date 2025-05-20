@@ -1,18 +1,31 @@
 import "whatwg-fetch";
 
+declare var alert: any;
+
 const SERVER_PROTOCOL = process.env.NEXT_PUBLIC_ADH_SERVER_PROTOCOL || "http";
 const SERVER_PORT = process.env.NEXT_PUBLIC_ADH_SERVER_PORT || "8000";
 const VERSION = process.env.NEXT_PUBLIC_ADH_SERVER_VERSION || "v0";
 
 function getURL(): string {
   const SERVER_IP =
-    process.env.NEXT_PUBLIC_ADH_SERVER_IP || globalThis.location?.hostname;
+    process.env.NEXT_PUBLIC_ADH_SERVER_IP;
+  const SERVER_PORT =
+    process.env.NEXT_PUBLIC_ADH_SERVER_PORT;
+  const URL = SERVER_PROTOCOL + "://" + SERVER_IP + ":" + SERVER_PORT;
+  return URL;
+}
+
+function getProxyURL(): string {
+  const SERVER_IP =
+    process.env.NEXT_PUBLIC_SERVER_IP;
+  const SERVER_PORT =
+    process.env.NEXT_PUBLIC_SERVER_PORT;
   const URL = SERVER_PROTOCOL + "://" + SERVER_IP + ":" + SERVER_PORT;
   return URL;
 }
 
 // export async function common_heatbeat_api() {
-//     const URL = getURL();
+//     const URL = getProxyURL();
 //     let response = await fetch(URL + `/adh/common/${VERSION}/heartbeat`, {
 //         method: "GET"
 //     });
@@ -20,9 +33,10 @@ function getURL(): string {
 // }
 
 export function get_heatbeat_wss() {
-  const URL = getURL();
+  const URL = getProxyURL();
 
   const wsURL = URL.replace(/^http:/, "ws:").replace(/^https:/, "wss:");
+  console.log(`${wsURL}/adh/common/${VERSION}/heartbeat`);
   return `${wsURL}/adh/common/${VERSION}/heartbeat`;
 }
 
@@ -34,7 +48,7 @@ export async function asr_infer_api(
   sampleWidth: Number = 2,
   settings: { [key: string]: string } = {}
 ) {
-  const URL = getURL();
+  const URL = getProxyURL();
   let response = await fetch(URL + `/adh/asr/${VERSION}/infer`, {
     method: "POST",
     body: JSON.stringify({
@@ -57,7 +71,7 @@ export async function tts_infer_api(
   engine: string = "default",
   settings: { [key: string]: string } = {}
 ) {
-  const URL = getURL();
+  const URL = getProxyURL();
   let response = await fetch(URL + `/adh/tts/${VERSION}/infer`, {
     method: "POST",
     body: JSON.stringify({
@@ -73,7 +87,7 @@ export async function tts_infer_api(
 }
 
 export async function agents_list_api() {
-  const URL = getURL();
+  const URL = getProxyURL();
   let response = await fetch(URL + `/adh/agent/${VERSION}/list`, {
     method: "GET",
     headers: {
@@ -84,7 +98,7 @@ export async function agents_list_api() {
 }
 
 export async function agent_default_api() {
-  const URL = getURL();
+  const URL = getProxyURL();
   let response = await fetch(URL + `/adh/agent/${VERSION}/default`, {
     method: "GET",
     headers: {
@@ -95,7 +109,7 @@ export async function agent_default_api() {
 }
 
 export async function agent_settings_api(engine: string) {
-  const URL = getURL();
+  const URL = getProxyURL();
   let response = await fetch(URL + `/adh/agent/${VERSION}/settings`, {
     method: "POST",
     body: JSON.stringify({
@@ -112,7 +126,7 @@ export async function agent_conversationid_api(
   engine: string = "default",
   settings: { [key: string]: string } = {}
 ) {
-  const URL = getURL();
+  const URL = getProxyURL();
   let response = await fetch(URL + `/adh/agent/${VERSION}/conversation_id`, {
     method: "POST",
     body: JSON.stringify({
@@ -133,7 +147,7 @@ export async function agent_infer_streaming_api(
   conversationId: string = "",
   settings: { [key: string]: string } = {}
 ) {
-  const URL = getURL();
+  const URL = getProxyURL();
   // 将conversationId填充到settings中
   settings["conversation_id"] = conversationId;
   let response = await fetch(URL + `/adh/agent/${VERSION}/infer`, {
