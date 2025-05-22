@@ -34,3 +34,5 @@ volumes
 config.yaml
 .env
 .DS_Store
+configs/engines
+configs/agents
