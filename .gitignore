@@ -36,3 +36,4 @@ config.yaml
 .DS_Store
 configs/engines
 configs/agents
+web/next.config.mjs
