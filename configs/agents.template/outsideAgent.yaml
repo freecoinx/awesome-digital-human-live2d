@@ -1,0 +1,13 @@
+NAME: "OutsideAgent"
+VERSION: "v0.0.1"
+# 暴露给前端的参数选项以及默认值
+PARAMETERS: [
+  {
+    NAME: "AGENT_TYPE",
+    DEFAULT: "local_lib"
+  },
+  {
+    NAME: "AGENT_MODULE",
+    DEFAULT: "adh_ai_agent.play_24_points_agent"
+  },
+]
