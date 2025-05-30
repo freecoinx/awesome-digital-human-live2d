@@ -27,6 +27,7 @@
     "@heroui/system": "2.4.15",
     "@heroui/table": "2.2.18",
     "@heroui/theme": "2.4.15",
+    "@swc/helpers": "^0.4.37",
     "@tailwindcss/postcss": "^4.1.7",
     "clsx": "^2.1.1",
     "eruda": "^3.3.0",
@@ -35,9 +36,9 @@
     "framer-motion": "^11.2.10",
     "js-audio-recorder": "^1.0.7",
     "lodash": "^4.17.21",
-    "next": "^15.3.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "next": "^14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
     "react-use": "^17.5.1",
     "react-use-websocket": "^4.8.1",
@@ -53,5 +54,8 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "next/@swc/helpers": "0.4.36"
   }
 }
