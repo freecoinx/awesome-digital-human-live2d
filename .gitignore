@@ -27,6 +27,7 @@ __pycache__
 node_modules
 dist
 package-lock.json
+pnpm-lock.yaml
 
 # local Folder
 data
@@ -37,3 +38,4 @@ config.yaml
 configs/engines
 configs/agents
 web/next.config.mjs
+web/app/greet
