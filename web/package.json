@@ -54,7 +54,4 @@
     "tailwindcss": "^3.4.16",
     "typescript": "^5"
   },
-  "resolutions": {
-    "next/@swc/helpers": "0.4.36"
-  }
 }
