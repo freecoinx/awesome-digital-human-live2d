@@ -26,7 +26,7 @@ __pycache__
 # web tmp File
 node_modules
 dist
-package-lock.json
+# package-lock.json
 pnpm-lock.yaml
 
 # local Folder
