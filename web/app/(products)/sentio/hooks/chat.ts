@@ -168,8 +168,8 @@ export function useChatWithAgent() {
                     messageId.current = data;
                     break;
                 case STREAMING_EVENT_TYPE.THINK:
-                    agentThink += data;
-                    updateLastRecord({ role: CHAT_ROLE.AI, think: agentThink, content: agentResponse });
+                    // agentThink += data;
+                    // updateLastRecord({ role: CHAT_ROLE.AI, think: agentThink, content: agentResponse });
                     break;
                 case STREAMING_EVENT_TYPE.TEXT:
                     agentResponse += data;
