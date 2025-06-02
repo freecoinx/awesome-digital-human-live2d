@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES2017",
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,20 +27,20 @@
       "@/*": [
         "./*"
       ],
-      "@live2dFramework/*": [
-        "./app/lib/live2d/Framework/src/*"
+      "@framework/*": [
+        "./lib/live2d/Framework/src/*"
       ],
       "@live2dCore/*": [
-        "./app/lib/live2d/Core/*"
+        "./lib/live2d/Core/*"
       ]
-    },
-    "target": "ES2017"
+    }
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    "./dist/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
