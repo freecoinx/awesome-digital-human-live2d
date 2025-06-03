@@ -35,7 +35,5 @@ volumes
 config.yaml
 .env
 .DS_Store
-configs/engines
-configs/agents
 web/next.config.mjs
 web/app/greet

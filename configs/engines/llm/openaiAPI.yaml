@@ -1,0 +1,32 @@
+NAME: "OpenAI"
+VERSION: "v0.0.1"
+DESC: ""
+META: {
+  FEE: "free"
+}
+PARAMETERS: [
+  {
+    name: "model",
+    description: "ID of the model to use.",
+    type: "string",
+    required: true,
+    choices: [],
+    default: ""
+  },
+  {
+    name: "base_url",
+    description: "The base url for request.",
+    type: "string",
+    required: false,
+    choices: [],
+    default: "https://api.openai.com/v1"
+  },
+  {
+    name: "api_key",
+    description: "The api key for request.",
+    type: "string",
+    required: true,
+    choices: [],
+    default: ""
+  }
+]
