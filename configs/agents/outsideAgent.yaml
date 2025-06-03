@@ -1,0 +1,28 @@
+NAME: "OutsideAgent"
+VERSION: "v0.0.1"
+DESC: "接入外部AI Agent实现"
+META: {
+  official: "",
+  configuration: "",
+  tips: "外部AI Agent的连接器",
+  fee: ""
+}
+# 暴露给前端的参数选项以及默认值
+PARAMETERS: [
+  {
+    name: "agent_type",
+    description: "type of outside agent",
+    type: "string",
+    required: true,
+    choices: [],
+    default: "local_lib"
+  },
+  {
+    name: "agent_module",
+    description: "entry module of outside agent",
+    type: "string",
+    required: false,
+    choices: [],
+    default: ""
+  }
+]

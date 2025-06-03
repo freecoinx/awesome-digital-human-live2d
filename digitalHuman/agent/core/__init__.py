@@ -8,6 +8,7 @@ from .difyAgent import DifyApiAgent
 from .repeaterAgent import RepeaterAgent
 from .fastgptAgent import FastgptApiAgent
 from .openaiAgent import OpenaiApiAgent
+from .outsideAgent import OutsideAgent
 
 from .agentFactory import AgentFactory
 
