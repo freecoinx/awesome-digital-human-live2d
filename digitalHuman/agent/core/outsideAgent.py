@@ -11,7 +11,7 @@ from yacs.config import CfgNode as CN
 from ..builder import AGENTS
 from ..agentBase import BaseAgent
 from digitalHuman.protocol import *
-from digitalHuman.utils import logger
+from digitalHuman.utils import logger, resonableStreamingParser
 
 
 __all__ = ["OutsideAgent"]
@@ -37,11 +37,20 @@ class OutsideAgent(BaseAgent):
 
             if AGENT_TYPE == "local_lib":
                 agent_module = importlib.import_module(AGENT_MODULE)
-                agent_response = await agent_module.chat_with_agent(input.data)
-            else:
-                agent_response = input.data
 
-            yield eventStreamText(agent_response)
+                if streaming:
+                    generator = agent_module.chat_with_agent
+                    async for parseResult in resonableStreamingParser(generator(input.data)):
+                        yield parseResult
+                else:
+                    agent_response = await agent_module.chat_with_agent(input.data)
+                    yield eventStreamText(agent_response)
+                    
+                yield eventStreamDone()            
+
+            else:
+                yield eventStreamText(input.data)
+            
             yield eventStreamDone()            
 
         except Exception as e:
