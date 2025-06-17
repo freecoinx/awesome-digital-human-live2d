@@ -13,5 +13,4 @@ python-multipart>=0.0.19
 websockets>=14.1
 requests>=2.32.3
 uvicorn>=0.32.1
-wave>=0.0.2
 yacs>=0.1.8
