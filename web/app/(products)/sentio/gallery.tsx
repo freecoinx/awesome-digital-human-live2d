@@ -202,13 +202,27 @@ function CharactersTab() {
     const characterTypeMap = {
         [t('all')]: CHARACTER_TYPE.ALL,
         [t('ip')]: CHARACTER_TYPE.IP,
+        [t('custom')]: CHARACTER_TYPE.CUSTOM,
         [t('free')]: CHARACTER_TYPE.FREE,
     };
     const getCharacters = (type: CHARACTER_TYPE): ResourceModelExtend[] => {
         var characters: ResourceModelExtend[] = [];
         // 静态图 / 动态图 处理
-        const models = type == CHARACTER_TYPE.FREE ? CONSTANTS.SENTIO_CHARACTER_FREE_MODELS : CONSTANTS.SENTIO_CHARACTER_IP_MODELS;
-        const modelPath = type == CHARACTER_TYPE.FREE ? CONSTANTS.SENTIO_CHARACTER_FREE_PATH : CONSTANTS.SENTIO_CHARACTER_IP_PATH;
+        var models = [];
+        var modelPath = "";
+        if (type == CHARACTER_TYPE.IP) {
+            models = CONSTANTS.SENTIO_CHARACTER_IP_MODELS;
+            modelPath = CONSTANTS.SENTIO_CHARACTER_IP_PATH;
+        }
+        else if (type == CHARACTER_TYPE.CUSTOM) {
+            models = CONSTANTS.SENTIO_CHARACTER_CUSTOM_MODELS;
+            modelPath = CONSTANTS.SENTIO_CHARACTER_CUSTOM_PATH;
+        }
+        else {
+            models = CONSTANTS.SENTIO_CHARACTER_FREE_MODELS;
+            modelPath = CONSTANTS.SENTIO_CHARACTER_FREE_PATH;
+        }
+
         for (const model of models) {
             characters.push({
                 resource_id: `${type}_${model}`,
@@ -223,7 +237,8 @@ function CharactersTab() {
 
     const freeCharacters = useMemo(() => getCharacters(CHARACTER_TYPE.FREE), [])
     const ipCharacters = useMemo(() => getCharacters(CHARACTER_TYPE.IP), []);
-    const characters = [...freeCharacters, ...ipCharacters];
+    const customCharacters = useMemo(() => getCharacters(CHARACTER_TYPE.CUSTOM), []);
+    const characters = [...freeCharacters, ...ipCharacters, ...customCharacters];
 
     const choiceCharacter = (index: number | null) => {
         if (index != null) {

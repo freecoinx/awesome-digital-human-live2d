@@ -37,4 +37,4 @@ config.yaml
 .DS_Store
 web/next.config.mjs
 web/app/greet
-web/public/sentio/characters/customized
+web/public/sentio/characters/custom
