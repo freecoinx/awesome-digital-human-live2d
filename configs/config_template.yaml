@@ -4,19 +4,18 @@ COMMON:
   LOG_LEVEL: "DEBUG"
 SERVER:
   IP: "0.0.0.0"
-  PORT: 8000
-  STORAGE_DOMAIN: "https://light4ai.space"
+  PORT: 8880
   WORKSPACE_PATH: "./outputs"
   ENGINES:
     ASR: 
-      SUPPORT_LIST: [ "difyAPI.yaml", "tencentAPI.yaml" ]
+      SUPPORT_LIST: [ "difyAPI.yaml", "cozeAPI.yaml", "tencentAPI.yaml", "funasrStreamingAPI.yaml"]
       DEFAULT: "difyAPI.yaml"
     TTS: 
-      SUPPORT_LIST: [ "edgeAPI.yaml", "tencentAPI.yaml", "difyAPI.yaml" ]
+      SUPPORT_LIST: [ "edgeAPI.yaml", "tencentAPI.yaml", "difyAPI.yaml", "cozeAPI.yaml" ]
       DEFAULT: "edgeAPI.yaml"
-    LLM: 
+    LLM:
       SUPPORT_LIST: []
       DEFAULT: ""
-  AGENTS: 
-    SUPPORT_LIST: [ "repeaterAgent.yaml", "openaiAPI.yaml", "difyAgent.yaml", "fastgptAgent.yaml" ]
+  AGENTS:
+    SUPPORT_LIST: [ "repeaterAgent.yaml", "openaiAPI.yaml", "difyAgent.yaml", "fastgptAgent.yaml", "cozeAgent.yaml" ]
     DEFAULT: "repeaterAgent.yaml"

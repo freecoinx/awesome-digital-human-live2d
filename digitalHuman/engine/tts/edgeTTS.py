@@ -80,7 +80,7 @@ VOICE_LIST = [
 ]
 @TTSEngines.register("EdgeTTS")
 class EdgeApiTts(BaseTTSEngine):
-    async def voices(self) -> List[VoiceDesc]:
+    async def voices(self, **kwargs) -> List[VoiceDesc]:
         return VOICE_LIST
         """
         结构体
@@ -132,7 +132,7 @@ class EdgeApiTts(BaseTTSEngine):
             if message["type"] == "audio":
                 data += message["data"]
         # mp3 -> wav
-        data = mp3ToWav(data)
+        # data = mp3ToWav(data)
         message = AudioMessage(
             data=base64.b64encode(data).decode('utf-8'),
             sampleRate=16000,

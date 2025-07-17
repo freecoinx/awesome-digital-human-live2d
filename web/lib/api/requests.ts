@@ -6,10 +6,6 @@ const SERVER_PROTOCOL = process.env.NEXT_PUBLIC_SERVER_PROTOCOL;
 const SERVER_PORT = process.env.NEXT_PUBLIC_SERVER_PORT;
 
 export function getHost(): string {
-  // 开发环境会做重定向
-  if (process.env.NEXT_PUBLIC_SERVER_MODE === "dev") {
-    return ""
-  }
   const SERVER_IP = process.env.NEXT_PUBLIC_SERVER_IP || globalThis.location?.hostname;
   let host = SERVER_PROTOCOL + "://" + SERVER_IP;
   // 非默认值端口显式添加
@@ -23,6 +19,12 @@ function getUrl(path: string): string {
   // 如果包含http则直接返回(完整路径)
   if (path.includes("http")) return path;
   return getHost() + path;
+}
+
+export function getWsUrl(path: string): string {
+  // 如果包含http则直接返回(完整路径)
+  if (path.includes("ws")) return path;
+  return getHost().replace("https", "wss").replace("http", "ws") + path;
 }
 
 export function errorHandler(error: Error, signal: AbortSignal | null = null ) {

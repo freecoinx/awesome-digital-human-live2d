@@ -9,7 +9,7 @@ from .repeaterAgent import RepeaterAgent
 from .fastgptAgent import FastgptApiAgent
 from .openaiAgent import OpenaiApiAgent
 from .outsideAgent import OutsideAgent
-
+from .cozeAgent import CozeApiAgent
 from .agentFactory import AgentFactory
 
 __all__ = ['AgentFactory']

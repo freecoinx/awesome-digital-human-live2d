@@ -115,6 +115,8 @@ class TencentApiTts(BaseTTSEngine):
             "Text": input.data,
             "SessionId": str(uuid4()),
             "VoiceType": tencentVoice.id,
+            # "Codec": "wav",
+            "Codec": "mp3",
             "Volume": volume,
             "Speed": speed,
             "EmotionCategory": emotionCategory
@@ -167,7 +169,7 @@ class TencentApiTts(BaseTTSEngine):
 
         return (headers, payload)
 
-    async def voices(self) -> List[VoiceDesc]:
+    async def voices(self, **kwargs) -> List[VoiceDesc]:
         return [VoiceDesc(name=v.name, gender=v.gender) for v in VOICE_LIST]
     
     async def run(self, input: TextMessage, **kwargs) -> AudioMessage:
@@ -176,9 +178,9 @@ class TencentApiTts(BaseTTSEngine):
         voice = paramters["voice"]
         speed = paramters["speed"]
         volume = paramters["volume"]
-        SECRET_ID = paramters["secret_id"]
-        SECRET_KEY = paramters["secret_key"]
-        tencentCloudApiKey = TencentCloudApiKey(secret_id=SECRET_ID, secret_key=SECRET_KEY)
+        SECRECT_ID = paramters["secret_id"]
+        SECRECT_KEY = paramters["secret_key"]
+        tencentCloudApiKey = TencentCloudApiKey(secret_id=SECRECT_ID, secret_key=SECRECT_KEY)
         headers, payload = self._buildRequest(input, tencentCloudApiKey, voice, volume, speed) 
         logger.debug(f"[TTS] Engine input: {input.data}")
         response = await httpxAsyncClient.post(self._url, headers=headers, data=payload)

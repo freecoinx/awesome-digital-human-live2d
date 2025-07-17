@@ -3,6 +3,7 @@ import { fetchEventSource } from '@microsoft/fetch-event-source';
 import * as PROTOCOL from "../protocol";
 import { v4 as uuidv4 } from 'uuid';
 import { getHost, errorHandler, get, post, filePost, put, del } from "./requests";
+import { WebsocketClient } from "./websocket";
 
 const SERVER_VERSION = process.env.NEXT_PUBLIC_SERVER_VERSION;
 
@@ -100,8 +101,9 @@ export async function api_tts_get_list(): Promise<PROTOCOL.EngineDesc[]>{
 
 export async function api_tts_get_voice(
     engine: string,
+    config: {}
 ): Promise<PROTOCOL.VoiceDesc[]>{
-    const path = `${TTS_PATH}/engine/${engine}/voice`;
+    const path = `${TTS_PATH}/engine/${engine}/voice?config=${encodeURIComponent(JSON.stringify(config))}`;
     return get(path, null).then((response: PROTOCOL.VoiceListResponse) => {
         return response.data
     }).catch(() => {
