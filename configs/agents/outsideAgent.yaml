@@ -24,5 +24,13 @@ PARAMETERS: [
     required: false,
     choices: [],
     default: ""
+  },
+  {
+    name: "agent_url",
+    description: "url of outside agent",
+    type: "string",
+    required: false,
+    choices: [],
+    default: ""
   }
 ]

@@ -4,7 +4,9 @@
 @Author  :   Mozilla88 
 '''
 
+import httpx
 import importlib
+import requests
 
 from yacs.config import CfgNode as CN
 
@@ -33,9 +35,9 @@ class OutsideAgent(BaseAgent):
 
             paramters = self.checkParameter(**kwargs)
             AGENT_TYPE = paramters["agent_type"]
-            AGENT_MODULE = paramters["agent_module"]
 
             if AGENT_TYPE == "local_lib":
+                AGENT_MODULE = paramters["agent_module"]
                 agent_module = importlib.import_module(AGENT_MODULE)
 
                 if streaming:
@@ -47,6 +49,23 @@ class OutsideAgent(BaseAgent):
                     yield eventStreamText(agent_response)
                     
                 yield eventStreamDone()            
+
+            elif AGENT_TYPE == "http_server":
+                AGENT_URI = paramters["agent_uri"]
+                data = {"message": "input.data"}
+                response = requests.post(AGENT_URI, data=data)
+                agent_response = response.text
+                print(response.text)
+                yield eventStreamText(agent_response)
+
+            elif AGENT_TYPE == "h2c_server":
+                AGENT_URI = paramters["agent_uri"]
+                data = {"message": "input.data"}
+                with httpx.Client(http2=True, transport=httpx.HTTPTransport(http1=False, http2=True)) as client:
+                    response = client.post(AGENT_URI, data=data, headers={"Upgrade": "h2c"})
+                    agent_response = response.text
+                    print(response.text)
+                    yield eventStreamText(agent_response)
 
             else:
                 yield eventStreamText(input.data)
