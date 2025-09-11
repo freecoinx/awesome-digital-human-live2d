@@ -34,16 +34,7 @@ PC端页面预览：
 可通过Agent编排框架，让一切变得更加简单。  
 ![](./assets/arch.png)
 
-## 模式支持
-> **交互模式**  
-* 对话模式：专注于数字人文字交互  
-* 沉浸模式：专注与数字人之间拟人方式的直接交互  
-> **Agent模式**
-* ReapterAgent（测试使用）：重复用户输入的语句  
-* DifyAgent：接入Dify的服务  
-* FastgptAgent：接入fastgpt的服务  
-* CozeAgent：接入coze的服务
-* OpenaiAgent：接入适配openai接口的服务  
+ 
 
 ## 版本记录
 > ### v1.0.0
