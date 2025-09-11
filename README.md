@@ -15,15 +15,6 @@
 ## 演示
 https://github.com/user-attachments/assets/6596fdb6-d9a1-4936-8c3d-312c683690b6
 
-## 主要特性
-* 支持 Docker 快速部署
-* 超轻量级，配置要求低于2核2G
-* 支持 Dify/FastGPT/Coze 等编排框架服务接入
-* 支持 ASR、LLM、TTS、Agent 模块化扩展
-* 支持 Live2d 人物模型扩展和控制方式
-* 支持PC端和移动端web访问
-* 支持沉浸式智能对话  
-PC端页面预览：  
  
 
 ## 版本记录
