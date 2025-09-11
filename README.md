@@ -9,41 +9,13 @@
 * 内置服务接入  
 * 限定主题  
 * 应用分享(链接分享、网页嵌入分享)
-###### *社区业余时间发电，你的star是我们最大的动力，感谢！*
----  
+###### *社区业余时间发电，你的star是我们最大的动力，感谢！* 
+---   
 
 ## 演示
 https://github.com/user-attachments/assets/6596fdb6-d9a1-4936-8c3d-312c683690b6
 
-## 主要特性
-* 支持 Docker 快速部署
-* 超轻量级，配置要求低于2核2G
-* 支持 Dify/FastGPT/Coze 等编排框架服务接入
-* 支持 ASR、LLM、TTS、Agent 模块化扩展
-* 支持 Live2d 人物模型扩展和控制方式
-* 支持PC端和移动端web访问
-* 支持沉浸式智能对话  
-PC端页面预览：  
-![](./assets/pc_web.png)  
-移动端页面预览：  
-![](./assets/phone_web.png)
-
-## 设计架构
-大模型的厂商众多、各种工具繁多、要打造自己的数字人需要一定的代码能力和时间投入。  
-可通过Coding扩展模块，让一切变得高度定制化。  
-可通过Agent编排框架，让一切变得更加简单。  
-![](./assets/arch.png)
-
-## 模式支持
-> **交互模式**  
-* 对话模式：专注于数字人文字交互  
-* 沉浸模式：专注与数字人之间拟人方式的直接交互  
-> **Agent模式**
-* ReapterAgent（测试使用）：重复用户输入的语句  
-* DifyAgent：接入Dify的服务  
-* FastgptAgent：接入fastgpt的服务  
-* CozeAgent：接入coze的服务
-* OpenaiAgent：接入适配openai接口的服务  
+ 
 
 ## 版本记录
 > ### v1.0.0
@@ -120,8 +92,4 @@ PC端页面预览：
 * [FunASR](https://github.com/modelscope/FunASR)
 * 源码中涉及到的所有库作者
 
-## 社区联系
-**扫码请备注 ADH**    
-| 商务合作 | 兴趣小组 |
-| --- | --- |
-| ![](assets/wechat_2.png) | ![](assets/wechat_1.png) |
+ 
