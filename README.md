@@ -120,8 +120,4 @@ PC端页面预览：
 * [FunASR](https://github.com/modelscope/FunASR)
 * 源码中涉及到的所有库作者
 
-## 社区联系
-**扫码请备注 ADH**    
-| 商务合作 | 兴趣小组 |
-| --- | --- |
-| ![](assets/wechat_2.png) | ![](assets/wechat_1.png) |
+ 
