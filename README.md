@@ -24,12 +24,7 @@ https://github.com/user-attachments/assets/6596fdb6-d9a1-4936-8c3d-312c683690b6
 * 支持PC端和移动端web访问
 * 支持沉浸式智能对话  
 PC端页面预览：  
-![](./assets/pc_web.png)  
-移动端页面预览：  
-![](./assets/phone_web.png)
-
-  
-  
+ 
 
 ## 版本记录
 > ### v1.0.0
